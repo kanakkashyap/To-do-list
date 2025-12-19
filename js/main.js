@@ -1,26 +1,44 @@
-// 1. Select the elements
-const todoInput = document.querySelector('.todo-input');
-const todoButton = document.querySelector('.todo-btn');
-const todoList = document.querySelector('#todo-list');
+const inputBox = document.getElementById("input-box");
+const listContainer = document.getElementById("list-container");
 
-// 2. Add an event listener to the button
-todoButton.addEventListener('click', function(event) {
-    // Stop the page from refreshing when clicking the button
-    event.preventDefault();
+function addTask() {
+    if (inputBox.value === '') {
+        alert("You must write something!");
+    } else {
+        // 1. Create a new list item (li)
+        let li = document.createElement("li");
+        
+        // 2. Set its content to the input text
+        li.innerHTML = inputBox.value;
+        
+        // 3. Put the new li inside our list container
+        listContainer.appendChild(li);
 
-    // Do nothing if the input is empty
-    if (todoInput.value === "") return;
+        // 4. Add a delete button (x) to the task
+        let span = document.createElement("span");
+        span.innerHTML = "\u00d7"; 
+        li.appendChild(span);
+    }
+    
+    // Clear the input box after adding
+    inputBox.value = "";
+    saveData();
+}
 
-    // 3. Create a new <li> element
-    const todoLi = document.createElement('li');
-    todoLi.classList.add('todo-item');
-    todoLi.innerText = todoInput.value;
+// Logic to delete a task when clicking the 'x'
+listContainer.addEventListener("click", function(e) {
+    if (e.target.tagName === "SPAN") {
+        e.target.parentElement.remove();
+        saveData();
+    }
+}, false);
 
-    // 4. Stick the new task into the <ul> list
-    todoList.appendChild(todoLi);
+// Local Storage so your list stays after refresh
+function saveData() {
+    localStorage.setItem("data", listContainer.innerHTML);
+}
 
-    // 5. Clear the input box for the next task
-    todoInput.value = "";
-});
-
-
+function showTask() {
+    listContainer.innerHTML = localStorage.getItem("data");
+}
+showTask();
