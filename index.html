@@ -3,21 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do List</title>
+    <title>TodoList</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1>Simple Todo List</h1>
+<p>Welcome to this todo list. Double click to edit the todo</p>
+    <!-- Input and button to add new todos  -->
+     <input type="text" id="todo-input" placeholder="Enter a todo and press Add or Enter">
 
-<div class="container">
-    <h2>Just do it.</h2>
-    <div class="input-row">
-        <input type="text" id="input-box" placeholder="Add a task...">
-        <button onclick="addTask()">I Got This!</button>
-    </div>
-    
-    <ul id="list-container"></ul>
-</div>
-
-<script src="script.js"></script>
+     <button id="add-btn">Add</button>
+     <ul id="todo-list"></ul>
+     <script src="script.js"></script>
 </body>
 </html>
