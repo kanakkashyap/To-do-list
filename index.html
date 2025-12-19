@@ -2,18 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TodoList</title>
     <link rel="stylesheet" href="style.css">
+    <title>To Do List - JavaScript Project</title>
 </head>
 <body>
-    <h1>Simple Todo List</h1>
-<p>Welcome to this todo list. Double click to edit the todo</p>
-    <!-- Input and button to add new todos  -->
-     <input type="text" id="todo-input" placeholder="Enter a todo and press Add or Enter">
+    <div class="container">
+        <div class="input-container">
+            <h1>My To Do List</h1>
+            <input type="text" placeholder="Add a new to do..." id="inputBox">
+            <input type="button" value="Add" id="addBtn">
+        </div>
 
-     <button id="add-btn">Add</button>
-     <ul id="todo-list"></ul>
-     <script src="script.js"></script>
+        <ul class="todoList" id="todoList">
+            <!-- <li><p>Task1</p></li>
+            <li>Task2</li>
+            <li>Task3</li> -->
+        </ul>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
